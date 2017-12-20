@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+.container{
+    height: 1150px;
+    width:600px;
+    /*border: 1px solid #000; */
+    margin: 0 auto;
+    background: #EFEDF2;
+}
+
+
+.header{
+    height: 140px;
+    position: relative;
+    /*width: 500px;*/
+    /*border: 1px solid black;*/
+    /*background: #31C27C;*/
+}
+.header-bg{
+    height: 80px;
+    background: #31C27C;
+}
+
+/*导航部分*/
+.header-nav{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    /*background: #EFEDF2;*/
+}
+.header-nav > input,
+.header-nav > a{
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    position: fixed;
+    top: 80px;
+}
+.header-nav > input{
+    opacity: 0;
+    z-index: 1000;/*input优先级设置：让单选按钮在a的上方*/
+}
+.header-nav a{
+    z-index: 10;
+    font-size: 20px;
+    text-align: center;
+    color:#888678; 
+}
+
+#nav1,#nav1 + a{
+    position: absolute;
+    left: 0;
+}
+#nav2,#nav2 + a{
+    position: absolute;
+    left: 200px;
+}
+#nav3,#nav3 + a{
+    position: absolute;
+    left: 400px;
+}
+.header-nav input:checked + a,
+.header-nav input:checked:hover + a{
+    color: #31C27C;
+}
+
+/*导航下方动态生成的小条*/
+.header input:checked + a:after{
+    content: "";/*content属性和:before,:after配合使用，来插入生成的内容*/
+    width: 200px;
+    height: 3px;
+    background: #3CB371;
+    position: absolute;
+    top: 70px;
+    left: 0px;
+}
+
+/*轮播图部分*/
+#wrap{
+    width: 600px;
+    height: 365px;
+    /*border:1px solid black;*/
+    margin: 20px auto;
+    position: relative;
+}
+#pic{
+    position: relative;
+}
+#pic img{
+    /*等比例缩放图片*/
+    width: 100%;
+    max-width: 600px;
+    position: absolute;
+    display: none;/*元素不会被显示*/
+}
+#tab{
+    width: 105px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    bottom: 140px;
+    margin-left: -50px;
+}
+#tab ul li{
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px;
+    background: #D0D0D0;
+    border-radius: 100%;
+    cursor: pointer;
+    float: left;   
+}
+#tab ul li.on{
+    background: #fff;
+}
+.classess{
+    height: 100px;
+    /*border:1px solid #000;*/
+    margin-top: -144px;
+    background: #fff;
+    border-bottom: 8px solid #EFEDF2;
+}
+.classess ul li{
+    margin-top: 10px;
+    float: left;
+    /*margin:20px 60px;*/
+}
+.classess ul li:nth-child(1){
+    margin-left: 78px;
+}
+.classess ul li:nth-child(2){
+    margin-left: 150px;
+}
+.classess ul li:nth-child(3){
+    margin-left: 150px;
+}
+.classess ul li span{
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #888678;
+}
+.radio{
+    height: 280px;
+    background: #fff;
+    /*border:2px solid #000;*/
+}
+.radio ul li{
+    float: left;
+    margin: 5px;
+}
+.radio ul li img{
+    width: 100%;
+    max-width: 190px;
+    border-radius: 5px;
+}
+.radio img#rectangle{
+    margin-top: 10px;
+}
+.radio span{
+    display: block;
+    margin-top: -25px;
+    margin-left: 30px;
+    font-size: 20px;
+    color: #888678;
+}
+.radio li p{
+    color: #000;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.music{
+    position: absolute;
+    bottom: -500px;
+    height: 65px;
+    width: 580px;
+    border:1px solid #31C27C;
+    border-radius: 50px 0 0 50px;
+    margin:5px 5px;
+    background: #31C27C;
+}
+.music button{
+    float: right;
+    margin-right: 25px;
+    margin-top: 14px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    font-size: 17px;
+    width: 70px;
+    height: 35px;
+    border:1px solid #fff;
+    border-radius: 15px;
+    cursor:pointer;
+    background: orange;
+}
+.footer p{
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 20px;
+    color: #888678;
+}
+.footer .symbal img{
+    margin-bottom: -5px;
+}
+.footer .symbal{
+    width: 150px;
+    height: 50px;
+    /*border:1px solid #000;*/
+    margin: 30px auto;
+}
+.footer .symbal span{
+    font-size: 23px;
+    font-family: YouYuan;
+}
+
+

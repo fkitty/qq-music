@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>qq音乐</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/player.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航及以上部分 -->
+        <div class="header">
+            <div class="header-bg"></div>
+            <!-- 导航部分 -->
+            <div class="header-nav">
+                <input type="radio" name="radio-set" checked="checked" id="nav1">
+                <a href="#">推荐</a>
+
+                <input type="radio" name="radio-set" id="nav2">
+                <a href="#">排行榜</a>
+
+                <input type="radio" name="radio-set" id="nav3">
+                <a href="#">搜索</a>
+            </div>
+        </div>
+
+        <!-- 轮播图部分 -->
+        <div class="content" id="wrap">
+            <div id="pic">
+                <img src="img/pic1.jpg" alt="">
+                <img src="img/pic2.png" alt="">
+                <img src="img/pic3.jpg" alt="">
+                <img src="img/pic4.jpg" alt="">
+                <img src="img/pic5.jpg" alt="">
+            </div>
+
+            <!-- 底部轮播的按钮 -->
+            <div id="tab">
+                <ul>
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 类别部分 -->
+        <div class="classess">
+            <ul>
+                <li>
+                    <img src="img/singer.png">
+                    <span>歌手</span>
+                </li>
+                <li>
+                    <img src="img/classify.png">
+                    <span>分类</span>
+                </li>
+                <li>
+                    <img src="img/special.png">
+                    <span>专辑</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 电台部分 -->
+        <div class="radio">
+            <div>
+                <img src="img/rectangle.png" id="rectangle" alt="">
+                <span>电台</span>
+            </div>
+            <ul>
+                <li>
+                    <img src="img/pic7.png" alt="">
+                    <p>我爱民谣</p>
+                </li>
+                <li>
+                    <img src="img/pic8.png" alt="">
+                    <p>随心听</p>
+                </li>
+                <li>
+                    <img src="img/pic9.png" alt="">
+                    <p>伤感</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>去客户端查看更多音乐&gt;</p>
+            <p>触屏版&nbsp;&nbsp;|&nbsp;&nbsp;电脑版</p>
+            <div class="symbal">
+                <img src="img/qqmusic2.png" alt="">
+                <span>QQ音乐</span>
+            </div>
+            
+        </div>
+
+        <!-- 播放音乐部分 -->
+        <div class="music">
+            <img src="img/qqmusic.png" alt="">
+            <button id="btn" title="展开播放列表">
+                    列表
+            </button>
+            <div id="list" style="display:none">
+                <ol>
+                    <li>成全-林宥嘉</li>
+                    <li>长大的童话-林宥嘉</li>
+                    <li>心酸-林宥嘉</li>
+                    <li>背影-林宥嘉</li>
+                    <li>残酷月光-林宥嘉</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="mymusic">
+            <audio src="music/mydestiny.mp3" controls="controls">
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src = "js/player.js"></script>
+
+    <!-- 轮播图部分 -->
+    <script type="text/javascript">
+        //获取轮播图部分
+        var oWrap = document.getElementById("wrap");
+        //要进行轮播的图片
+        var picImg = document.getElementById("pic").getElementsByTagName("img");
+        //轮播图下方的按钮
+        var tabLi = document.getElementById("tab").getElementsByTagName("li");
+        var index = 0;
+        var timer = null;
+        picImg[0].style.display = "block";
+        tabLi[0].className = "on";
+
+        //轮播底部的按钮
+        for(var i=0;i<tabLi.length;i++){
+            tabLi[i].index = i;
+            tabLi[i].onclick = function(){
+                //初始为none
+                picImg[index].style.display = "none";
+                tabLi[index].className = "";
+                index = this.index;
+                picImg[index].style.display = "block";
+                tabLi[index].className = "on";
+            };
+        }
+
+        auto();
+        oWrap.onmouseenter = function(){
+            clearInterval(timer);
+        };
+        oWrap.onmouseleave = function(){
+            auto();
+        };
+
+        function auto(){
+            timer = setInterval(function(){
+                picImg[index].style.display = "none";
+                tabLi[index].className = " ";
+                index++;
+                index %= tabLi.length;
+                picImg[index].style.display = "block";
+                tabLi[index].className = "on";
+            },3000);
+
+        }
+
+        //播放列表展开和收起
+        window.onload = function(){
+            document.getElementById("btn",onclick=function(){
+                var list = document.getElementById("list");
+                if(list.style.display == "none"){
+                    list.style.display = "block";
+                }else{
+                    list.style.display="none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

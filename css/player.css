@@ -1,0 +1,26 @@
+#list{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    position: absolute;
+    bottom: 65px;
+    right: 28px;
+    background: #000;
+    opacity: 0.4;
+    border-radius: 5%;
+    /*display: block;*/
+    /*display: none;*/
+}
+#list ol li{
+    margin-top: 25px;
+    margin-left: 25px;
+    color: #fff;
+}
+
+.mymusic{
+    /*width: 200px;
+    height: 100px;*/
+    position: relative;
+    left: 120px;
+    top: 20px;
+}
